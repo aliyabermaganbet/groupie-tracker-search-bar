@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <title>myjson</title>
+    <style>
+        body{
+            background: url('https://www.publicdomainpictures.net/pictures/170000/nahled/music-wallpaper.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            color:rgb(240, 241, 241);
+            margin: auto;
+            text-align: center;
+            display: grid;
+        }
+       .container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap:wrap;
+        font-family: Verdana;
+        
+       }
+       .cards {
+        width:250px;
+        font-family: Verdana;
+        height:250px;
+        margin: 25px;
+        color: rgb(244, 245, 250);;
+       }
+       h1 {
+        text-align: center;
+        font-family: Verdana;
+        text-decoration: bisque;
+        text-decoration-color: aliceblue;
+        font-size: 6ch;
+       }
+       p {
+        font-family: Verdana;
+        text-align: center;
+        text-decoration: bisque;
+        font-size: 4ch;
+       }
+       .name {
+        text-align: center;
+        font-family: Verdana;
+        font-weight:bold;
+        font-size: 2.5ch;
+       }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Groupie-tracker project!</h1>
+    <p>Click on the image for detailed information about the artist </p>
+    <form id="form" role="search" action="/hello" method ="post">
+        <input list="search" id="query" name="search" required="input"
+         placeholder="Search..."
+         aria-label="Search through site content">
+         <datalist id="search">
+            {{range .}}
+            <option value="{{.Creationdate}}"></option>
+            <option value="{{.Name}}"></option>
+            {{range .Loc}}
+            <option value="{{.}}"></option>
+            {{end}}
+            <option value="{{.Firstalbum}}"></option>
+            {{range .Members}}
+            <option value="{{.}}"></option>
+            {{end}}
+            {{end}}
+          </datalist>
+        <select name="option" id="option">
+            <option  value="All">All</option>
+            <option  value="Artist/band">Artist/band</option>
+            <option  value="First album date">First album date</option>
+            <option  value="Creation date">Creation date</option>
+            <option  value="Members">Members</option>
+            <option  value="Locations">Locations</option>
+          </optgroup>
+        </select> 
+        <button>Search</button>
+      </form>
+        <div class="container">
+        {{range .}}
+        <div class="cards">
+            <div class = "image">
+                <a href="/result/?id={{.Id}}"><img src = {{ .Image}} width="200" height="200">
+                </a>
+            </div>
+            <div class="name">
+                {{.Name}}  
+             </div>
+        </div>
+            {{end}}
+        </div>
+</body>
+</html>
+

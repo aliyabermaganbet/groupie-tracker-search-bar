@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myjson</title>
+    <style>
+        h1 {
+            font-size: 6ch;
+        }
+        body{
+            background: url('https://www.publicdomainpictures.net/pictures/170000/nahled/music-wallpaper.jpg');
+            background-repeat: no-repeat;
+            width: 80%;
+            color:rgb(236, 238, 243);
+            background-size:cover;
+            margin: auto;
+            margin-bottom: 10ch;
+            margin-top: 9ch;
+            font-family: Garamond;
+            text-align: center;
+        }
+        .members {
+            font-family: Garamond;
+            text-align: center;
+            font-size: 5ch;
+            width: 80%;
+            margin: auto;
+        }
+        h2{
+            font-family: Garamond;
+            font-size: 5ch;
+        }
+        h3 {             
+            font-family: Garamond;
+            font-size: 5ch;}
+        h4 { 
+            font-size: 5ch;
+            font-family: Garamond;
+
+        }
+        .name{
+            text-align: center;
+            font-size: 350%;
+            font-weight: bold;
+            margin-bottom: 0.8ch;
+            font-family: Garamond;
+        }
+        .creationdate {
+            font-size: 5ch;
+            font-family: Garamond;
+
+        }
+        .firstalbum{
+            font-size: 5ch;
+            font-family: Garamond;
+
+        }
+        .info {
+            font-size: 4.5ch;
+            width: 350px;
+            font-family: Garamond;
+            margin: auto;
+
+        }
+        .image{
+            text-align: center;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class = "name">{{ .Name}}</div>
+    <br>
+    <div class = "image" >
+        <img src = {{ .Image}} width="50%" >
+    </div>
+    <br>
+    <h1>Members</h1>
+    <div class = "members">
+        {{range .Member}}
+        <br>
+        {{ . }}
+        {{ end}}
+    </div>
+    <h2>Creation date</h2>
+    <div class = "creationdate">
+        {{ .Creationdate}}
+    </div>
+    <h3>First album</h3>
+    <div class = "firstalbum">
+        {{ .Firstalbum}}
+    </div>
+    <h4>Locations and dates</h4>
+    <div class = "info">
+        {{ range $key, $value := .Relate }}
+        <br>
+        <li><strong>{{ $key }}</strong>: 
+            {{ range $value  }}</li>
+            <br>
+            {{.}}
+        {{end}}
+        <br>
+        {{ end }}
+</div>
+</body>
+</html>

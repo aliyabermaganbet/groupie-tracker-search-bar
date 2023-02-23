@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <title>myjson</title>
+    <style>
+        body{
+            background: url('https://www.publicdomainpictures.net/pictures/170000/nahled/music-wallpaper.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            color:rgb(240, 241, 241);
+            text-align: center;
+            display: grid;
+            width: 100%;
+        }
+     
+       h1 {
+        text-align: center;
+        font-family: Verdana;
+        text-decoration: bisque;
+        text-decoration-color: aliceblue;
+        font-size: 6ch;
+       }
+       p {
+        font-family: Verdana;
+        text-align: center;
+        text-decoration: bisque;
+        font-size: 4ch;
+       }
+       .name {
+        text-align: center;
+        font-family: Verdana;
+        font-weight:bold;
+        font-size: 2.5ch;
+       }
+      .image {
+        margin-top: 30px;
+      }
+      .button{
+        position: fixed;
+        right: 2rem;
+        top: 2rem;
+        font-size:10px;
+      }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Groupie-tracker project!</h1>
+    <p>Click on the image for detailed information about the artist </p>
+    <form>
+      <div class = "button">
+      <input type="button" value="Home" onclick="history.back()">
+    </div>
+     </form>
+      <div class="container">
+        {{range .}}
+        <div class="cards">
+            <div class = "image">
+                <a href="/result/?id={{.Id}}"><img src = {{ .Image}} width="200" height="200">
+                </a>
+            </div>
+            <div class="name">
+                {{.Name}}  
+             </div>
+        </div>
+            {{end}}
+        </div>
+</body>
+</html>
+
