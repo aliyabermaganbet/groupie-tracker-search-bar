@@ -18,7 +18,7 @@ For example if you start writing "phil" it should appear as suggestions Phil Col
 
 # Run Locally
 
-    1. Clone the project by running the following command in the terminal "git@git.01.alem.school:aliya.science/groupie-tracker-search-bar.git"
+    1. Clone the project by running the following command in the terminal "git@github.com:aliyabermaganbet/groupie-tracker-search-bar.git"
     2. Run the following command: "go run main.go" and click on the URL address to go to the web page
     3. There will be displayed the images of the artists and by clicking on them you can find information such as members of the group, their first album and concert dates.
     4. You can search the Artist/band, memebrs, locations, first album date, creation date by certain criterias.
@@ -28,4 +28,3 @@ For example if you start writing "phil" it should appear as suggestions Phil Col
 ## Authors
 
 - [@aliya.science]
-- [@Ivan.Bondy]
